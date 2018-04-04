@@ -2,12 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'login',
-  template: `
-    <div>
-      Login
-      <auth-form></auth-form>
-    </div>
-  `
+  templateUrl: './login.component.html'
 })
 export class LoginComponent {
   constructor() {}
