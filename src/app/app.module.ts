@@ -32,18 +32,3 @@ export const ROUTES: Routes = [];
   ]
 })
 export class AppModule {}
-
-
-/* <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCkGZyl6A6kx7VASNn3RdhMHbC3vLObq8c",
-    authDomain: "fitness-app-a9185.firebaseapp.com",
-    databaseURL: "https://fitness-app-a9185.firebaseio.com",
-    projectId: "fitness-app-a9185",
-    storageBucket: "fitness-app-a9185.appspot.com",
-    messagingSenderId: "129417252733"
-  };
-  firebase.initializeApp(config);
-</script> */
