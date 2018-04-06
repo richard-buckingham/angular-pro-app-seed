@@ -4,11 +4,18 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import 'rxjs/add/operator/pluck';
 import 'rxjs/add/operator/distinctUntilChanged';
 
+import { User} from './auth/models/user.interface';
+
+// define the state interface
 export interface State {
+  user: User,
   [key: string]: any
 }
 
-const state: State = {};
+// define the initial state
+const state: State = {
+  user: undefined
+};
 
 export class Store {
 
