@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
@@ -11,14 +12,7 @@ import { User } from '../../../auth/models/user.interface'
 @Component({
   selector: 'app-root',
   styleUrls: ['app.component.scss'],
-  template: `
-    <div>
-      <h6>{{ user$ | async | json }}</h6>
-      <div class="wrapper">
-      <router-outlet></router-outlet>
-      </div>
-    </div>
-  `
+  templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit, OnDestroy {
 
@@ -26,7 +20,8 @@ export class AppComponent implements OnInit, OnDestroy {
   authSubscription: Subscription;
 
   constructor(private store: Store,
-    private authService: AuthService) { }
+              private authService: AuthService,
+              private router: Router) { }
 
   ngOnInit() {
     // subscribe to initiate this observable
@@ -38,4 +33,9 @@ export class AppComponent implements OnInit, OnDestroy {
     this.authSubscription.unsubscribe();
   }
 
+  async onLogout() {
+    await this.authService.logout();
+    // redirect to the login page
+    this.router.navigate(['/auth/login']);
+  }
 }

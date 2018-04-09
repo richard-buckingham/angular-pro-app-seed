@@ -4,7 +4,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import 'rxjs/add/operator/pluck';
 import 'rxjs/add/operator/distinctUntilChanged';
 
-import { User} from './auth/models/user.interface';
+import { User } from './auth/models/user.interface';
 
 // define the state interface
 export interface State {
