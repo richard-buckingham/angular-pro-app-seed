@@ -5,16 +5,19 @@ import 'rxjs/add/operator/pluck';
 import 'rxjs/add/operator/distinctUntilChanged';
 
 import { User } from './auth/models/user.interface';
+import { Meal } from './health/shared/services/meals/meals.service';
 
 // define the state interface
 export interface State {
   user: User,
+  meals: Meal[],
   [key: string]: any
 }
 
 // define the initial state
 const state: State = {
-  user: undefined
+  user: undefined,
+  meals: undefined
 };
 
 export class Store {
