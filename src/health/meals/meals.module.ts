@@ -11,6 +11,8 @@ import { MealsComponent } from './container/meals/meals.component';
 import { MealComponent } from './container/meal/meal.component';
 
 // components
+import { MealFormComponent } from './components/meal-form/meal-form.component';
+
 
 // define the routes
 export const ROUTES: Routes = [
@@ -27,7 +29,8 @@ export const ROUTES: Routes = [
   ],
   declarations: [
     MealsComponent,
-    MealComponent
+    MealComponent,
+    MealFormComponent
   ],
   providers: []
 })

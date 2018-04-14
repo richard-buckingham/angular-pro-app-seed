@@ -1,0 +1,53 @@
+<div class="meal-form">
+
+  <form [formGroup]="form">
+
+    <!-- meal name -->
+    <div class="meal-form__name">
+      <label>
+        <h3>Meal name</h3>
+        <input type="text" placeholder="eg: English Breakfast" formControlName="name">
+        <div class="error" *ngIf="nameRequiredError">
+            name is required
+          </div>
+      </label>
+    </div>
+
+    <!-- add an ingredient -->
+    <div class="meal-form__food">
+
+      <div class="meal-form__subtitle">
+        <h3>Food</h3>
+        <button type="button" class="meal-form__add" (click)="addIngredient()">
+          <img src="/img/add-white.svg"> Add food
+        </button>
+      </div>
+
+      <div formArrayName="ingredients">
+        <!-- iterate over our ingredients-->
+        <label *ngFor="let c of ingredients.controls; index as i">
+          <input [formControlName]="i" placeholder="eg: eggs">
+          <span class="meal-form__remove" (click)="removeIngredient(i)" >
+
+          </span>
+        </label>
+      </div>
+
+    </div>
+
+    <!-- submit the meal -->
+    <div class="meal-form__submit">
+      <div>
+        <button type="button" class="button" (click)="createMeal()">
+          Create Meal
+        </button>
+        <a class="button button--cancel" [routerLink]="['../']">
+          Cancel
+        </a>
+      </div>
+    </div>
+
+
+  </form>
+
+</div>

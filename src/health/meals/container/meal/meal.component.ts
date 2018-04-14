@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { Meal } from '../../../shared/services/meals/meals.service';
+
 @Component({
   selector: 'meal',
   styleUrls: ['meal.component.scss'],
@@ -7,4 +9,8 @@ import { Component } from '@angular/core';
 })
 export class MealComponent {
   constructor() {}
+
+  addMeal(meal: Meal) {
+    console.log('meal', meal);
+  }
 }
