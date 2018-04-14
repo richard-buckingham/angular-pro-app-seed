@@ -42,7 +42,7 @@ export class MealFormComponent {
   createMeal() {
     if (this.form.valid) {
       const newMeal = <Meal>this.form.value;
-      console.log('newMeal', newMeal);
+      //console.log('newMeal', newMeal);
       this.create.emit(newMeal);
     }
   }

@@ -23,7 +23,7 @@ export class MealsService {
   // note that this.db.list is an observable, that will notify us every time a change occurs
   meals$: Observable<Meal[]> = this.db.list(`meals/${this.uid}`)
     .do( (meals: Meal[]) => {
-      console.log('meals', meals);
+      console.log('meals has been updated in firebase... ', meals);
       this.store.set('meals', meals);
     });
   
@@ -34,6 +34,10 @@ export class MealsService {
 
     get uid() {
       return this.authService.user.uid;
+    }
+
+    addMeal(meal: Meal) {
+      this.db.list(`meals/${this.uid}`).push(meal);
     }
 
 }
