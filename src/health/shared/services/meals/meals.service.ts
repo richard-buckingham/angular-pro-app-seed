@@ -40,4 +40,8 @@ export class MealsService {
       this.db.list(`meals/${this.uid}`).push(meal);
     }
 
+    removeMeal(key: string) {
+      return this.db.list(`meals/${this.uid}`).remove(key);
+    }
+
 }
