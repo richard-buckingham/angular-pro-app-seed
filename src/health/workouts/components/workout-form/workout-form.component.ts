@@ -27,7 +27,9 @@ export class WorkoutFormComponent implements OnChanges {
   remove = new EventEmitter<Workout>();
 
   form = this.fb.group({
-    name: ['', Validators.required]
+    name: ['', Validators.required],
+    type: 'strength'
+
   });
   
   constructor(

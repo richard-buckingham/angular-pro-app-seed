@@ -1,0 +1,11 @@
+<div class="workout-type">
+  <div *ngFor="let selector of selectors" 
+        class="workout-type__pane"
+        [class.active]="selector === value"
+        (click)="setSelected(selector)" >
+    <p>
+      <img src="/img/{{selector}}.svg">
+      {{ selector }}
+    </p>
+  </div>
+</div>
