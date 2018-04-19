@@ -3,23 +3,32 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
-// containers
-import { WorkoutsComponent } from './container/workouts/workouts.component';
+import { SharedModule } from '../shared/shared.module';
 
 // components
+import { WorkoutFormComponent } from './components/workout-form/workout-form.component';
 
-// define the routes
+// containers
+import { WorkoutsComponent } from './container/workouts/workouts.component';
+import { WorkoutComponent } from './container/workout/workout.component';
+
 export const ROUTES: Routes = [
-  { path: '', component: WorkoutsComponent }
+  { path: '', component: WorkoutsComponent },
+  { path: 'new', component: WorkoutComponent },
+  { path: ':id', component: WorkoutComponent },
 ];
 
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    RouterModule.forChild(ROUTES)
+    RouterModule.forChild(ROUTES),
+    SharedModule
   ],
-  declarations: [WorkoutsComponent],
-  providers: []
+  declarations: [
+    WorkoutsComponent,
+    WorkoutComponent,
+    WorkoutFormComponent
+  ]
 })
 export class WorkoutsModule {}

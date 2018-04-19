@@ -6,18 +6,21 @@ import 'rxjs/add/operator/distinctUntilChanged';
 
 import { User } from './auth/models/user.interface';
 import { Meal } from './health/shared/services/meals/meals.service';
+import { Workout } from './health/shared/services/workouts/workouts.service';
 
 // define the state interface
 export interface State {
   user: User,
   meals: Meal[],
+  workouts: Workout[],
   [key: string]: any
 }
 
 // define the initial state
 const state: State = {
   user: undefined,
-  meals: undefined
+  meals: undefined,
+  workouts: undefined
 };
 
 export class Store {
