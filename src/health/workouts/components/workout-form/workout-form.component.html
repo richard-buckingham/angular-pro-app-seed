@@ -5,7 +5,7 @@
     <div class="workout-form__name">
       <label>
         <h3>Workout name</h3>
-        <input type="text" placeholder="e.g. English Breakfast" formControlName="name">
+        <input type="text" [placeholder]="placeholder" formControlName="name">
         <div class="error" *ngIf="required">
           Workout name is required
         </div>
@@ -13,48 +13,89 @@
       <label>
         <h3>Type</h3>
         <workout-type formControlName="type">
-
         </workout-type>
       </label>
     </div>
 
-    <!-- buttons -->
-    <div class="workout-form__submit">
+    <!-- Workout Details -->
+    <div formGroupName="strength" class="workout-form__details"
+          *ngIf="form.get('type').value === 'strength' ">
+      <!-- Strength -->
       <div>
-        <!-- Create Workout -->
-        <button type="button" class="button" *ngIf="!exists" (click)="createWorkout()">
-          Create workout
-        </button>
-        <!-- Update Workout -->
-        <button type="button" class="button" *ngIf="exists" (click)="updateWorkout()">
-          Save
-        </button>
-        <!-- Cancel Workout -->
-        <a class="button button--cancel" [routerLink]="['../']">
-          Cancel
-        </a>
-      </div>
-
-      <!-- Delete Workout -->
-      <div class="workout-form__delete" *ngIf="exists">
-        <div *ngIf="toggled">
-          <p>Delete item?</p>
-          <button class="confirm" type="button" (click)="removeWorkout()">
-            Yes
-          </button>
-          <button class="cancel" type="button" (click)="toggle()">
-            No
-          </button>
+        <div class="workout-form__fields">
+          <label>
+            <h3>Reps</h3>
+            <input formControlName="reps" type="number">
+          </label>
+          <label>
+            <h3>Sets</h3>
+            <input formControlName="sets" type="number">
+          </label>
+          <label>
+            <h3>Weight
+              <span>(kg)</span>
+            </h3>
+            <input formControlName="weight" type="number">
+          </label>
         </div>
-
-        <button class="button button--delete" type="button" (click)="toggle()">
-          Delete
-        </button>
       </div>
-
     </div>
 
-  </form>
+    <div formGroupName="endurance" class="workout-form__details"
+          *ngIf="form.get('type').value === 'endurance' ">
+      <!-- Endurance -->
+      <div>
+        <div class="workout-form__fields">
+          <label>
+            <h3>Distance <span>(km)</span></h3>
+            <input formControlName="distance" type="number">
+          </label>
+          <label>
+            <h3>Duration <span>(min)</span></h3>
+            <input formControlName="duration" type="number">
+          </label>
+        </div>
+      </div>
+    </div>
+
+
+<!-- buttons -->
+<div class="workout-form__submit">
+  <div>
+    <!-- Create Workout -->
+    <button type="button" class="button" *ngIf="!exists" (click)="createWorkout()">
+      Create workout
+    </button>
+    <!-- Update Workout -->
+    <button type="button" class="button" *ngIf="exists" (click)="updateWorkout()">
+      Save
+    </button>
+    <!-- Cancel Workout -->
+    <a class="button button--cancel" [routerLink]="['../']">
+      Cancel
+    </a>
+  </div>
+
+  <!-- Delete Workout -->
+  <div class="workout-form__delete" *ngIf="exists">
+    <div *ngIf="toggled">
+      <p>Delete item?</p>
+      <button class="confirm" type="button" (click)="removeWorkout()">
+        Yes
+      </button>
+      <button class="cancel" type="button" (click)="toggle()">
+        No
+      </button>
+    </div>
+
+    <button class="button button--delete" type="button" (click)="toggle()">
+      Delete
+    </button>
+  </div>
+
+</div>
+
+</form>
 
 </div>
 <pre>{{ form.value | json }}</pre>
