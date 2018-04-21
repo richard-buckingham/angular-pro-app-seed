@@ -18,7 +18,9 @@ export class ListItemComponent {
   constructor() {}
 
   getRoute(item: any): any[] {
-    const route: any[] = [`../meals`, item.$key];
+    const urlFragment = item.ingredients ? 'meals' : 'workouts';
+    console.log('urlFragment = ', urlFragment);
+    const route: any[] = [`../${urlFragment}`, item.$key];
     console.log('getting the route. route = ', route);
     return route;
   }
