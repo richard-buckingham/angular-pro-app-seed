@@ -7,6 +7,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { ScheduleComponent } from './container/schedule/schedule.component';
 
 // components
+import { ScheduleCalendarComponent } from './components/schedule-calendar/schedule-calendar.component';
+import { ScheduleDaysComponent } from './components/schedule-days/schedule-days.component';
+import { ScheduleControlsComponent } from './components/schedule-controls/schedule-controls.component';
 
 // define the routes
 export const ROUTES: Routes = [
@@ -19,7 +22,12 @@ export const ROUTES: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(ROUTES)
   ],
-  declarations: [ScheduleComponent],
+  declarations: [
+    ScheduleComponent,
+    ScheduleCalendarComponent,
+    ScheduleDaysComponent,
+    ScheduleControlsComponent
+  ],
   providers: []
 })
 export class ScheduleModule {}
